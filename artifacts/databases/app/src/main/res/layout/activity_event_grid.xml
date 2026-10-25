@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventGridActivity">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Upcoming Events"
+            app:menu="@menu/menu_event_grid" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Header Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:background="@color/surface">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Event"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Time"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <!-- Empty placeholder (visible when no events) -->
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No upcoming events"
+            android:gravity="center"
+            android:padding="32dp"
+            android:visibility="visible" />
+
+        <!-- RecyclerView (will be populated later) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_events"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:listitem="@layout/item_event" />
+    </LinearLayout>
+
+    <!-- Floating Action Button for adding -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Add Event"
+        android:src="@drawable/ic_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorPrimary" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

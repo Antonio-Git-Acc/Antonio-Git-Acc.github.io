@@ -1,0 +1,21 @@
+﻿# Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Android / Gradle
+build/
+.gradle/
+.idea/
+.kotlin/
+local.properties
+
+# Visual Studio
+.vs/
+x64/
+Debug/
+Release/
+
+# OS
+.DS_Store
+Thumbs.db
